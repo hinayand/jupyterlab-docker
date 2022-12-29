@@ -2,6 +2,7 @@ FROM python:alpine
 
 # Install required packages
 RUN apk add --update git
+RUN apk add python3-pip
 
 # Install JupyterLab
 RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
