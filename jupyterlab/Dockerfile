@@ -3,11 +3,6 @@ FROM python:alpine
 # Install required packages
 RUN apk add --update git
 
-# Install Jupyter
-RUN pip install jupyter
-RUN pip install ipywidgets
-RUN jupyter nbextension enable --py widgetsnbextension
-
 # Install JupyterLab
 RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
 
