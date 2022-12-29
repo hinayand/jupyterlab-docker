@@ -2,7 +2,10 @@ FROM python:alpine
 
 # Install required packages
 RUN apk add --update git
-RUN apk add python-pip
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+ 
+RUN apk add --update --no-cache curl jq py3-configobj py3-pip py3-setuptools python3 python3-dev
 
 # Install JupyterLab
 RUN pip install jupyterlab && jupyter serverextension enable --py jupyterlab
